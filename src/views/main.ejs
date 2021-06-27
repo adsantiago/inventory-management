@@ -1,0 +1,72 @@
+<%- include ('partials/_header') %>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <div>
+                    <h2 class="text-center">Stock</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>n°</th>
+                                <th>Producto</th>
+                                <th>Valor</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%  var total=0; %>
+                            <% if (stock_data) { %>
+                                <% for (var i=0; i < stock_data.length; i++){ %>
+                                <tr>
+                                    <td>
+                                        <%= (i+1) %>
+                                    </td>
+                                    <td>
+                                        <%= stock_data[i].stock_product %>
+                                    </td>
+                                    <td>
+                                        <%= stock_data[i].stock_value %>
+                                    </td>
+                                    <td>
+                                        <%= stock_data[i].stock_quantity %>
+                                    </td>
+                                </tr>
+                                <%} %>
+                            <%} %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div>
+                    <h2 class="text-center">Añadir stock</h2>
+                    <div class="card justify-content-center">
+                        <div class="card-body">
+                            <div class="alert alert-secondary text-center">
+                                <p>
+                                Ultimo reporte: 1/01/2021
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <a href="/stock/" class="btn btn-success">Nuevo Stock <i class="fas fa-clipboard-list"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sell-of-day">
+                    <h2 class="text-center">Reporte del día</h2>
+                    <div class="calendar mt-3" id="calendar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="root mt-5">
+
+    </div>
+    
+<%- include ('partials/_footer') %>
