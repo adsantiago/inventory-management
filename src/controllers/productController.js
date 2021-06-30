@@ -1,14 +1,17 @@
 const controller = {};
 
 //Main view
-controller.main = (req, res) => {
+controller.main = (req, res) =>{
     req.getConnection((err, conn) => {
         conn.query('SELECT * FROM stock', (err, stock) => {
-            if (err) {
-                res.json(err);
-            }
-            res.render('main', {
-                stock_data: stock
+            conn.query('SELECT * FROM reports', (err, report) => {
+                if (err){
+                    res.json(err);
+                }
+                res.render('main', {
+                    stock_data: stock,
+                    report_data: report
+                });
             });
         });
     });

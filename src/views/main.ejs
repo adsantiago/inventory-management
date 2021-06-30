@@ -44,9 +44,12 @@
                     <div class="card justify-content-center">
                         <div class="card-body">
                             <div class="alert alert-secondary text-center">
-                                <p>
-                                Ultimo reporte: 1/01/2021
-                                </p>
+                                <% var no_reports = "No hay reportes"; %>
+                                <% if (report_data.length > 0) { %>
+                                    <%= "Ultimo reporte: " + report_data[report_data.length-1].date %>
+                                <% } else {%>
+                                    <%= no_reports %>
+                                <% }%>
                             </div>
                             <div class="text-center">
                                 <a href="/stock/" class="btn btn-success">Nuevo Stock <i class="fas fa-clipboard-list"></i></a>
