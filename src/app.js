@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const mysql = require('mysql');
+const mysql2 = require('mysql2');
 const myConnection = require('express-myconnection');
 
 const app = express();
@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // middlewares
 app.use(morgan('dev'));
-app.use(myConnection(mysql, {
+app.use(myConnection(mysql2, {
    host: 'localhost',
    user: 'root',
    password: 'password' ,
